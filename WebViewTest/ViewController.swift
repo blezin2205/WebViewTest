@@ -72,6 +72,7 @@ class ViewController: UIViewController, WKUIDelegate {
             case .success(let arrayA):
                 self.arrayA = arrayA
                 self.id = "\(arrayA[self.arrayIndex].id)"
+                self.navigationItem.title = arrayA[self.arrayIndex].title
                 self.loadDataBContents(pathB: self.pathB + self.id)
                 
             case .failure(let error):
@@ -87,10 +88,12 @@ class ViewController: UIViewController, WKUIDelegate {
         if arrayIndex != arrayA.count - 1 {
             arrayIndex += 1
             id = "\(arrayA[arrayIndex].id)"
+            navigationItem.title = arrayA[arrayIndex].title
             loadDataBContents(pathB: pathB + id)
         } else {
             arrayIndex = 0
             id = "\(arrayA[arrayIndex].id)"
+            navigationItem.title = arrayA[arrayIndex].title
             loadDataBContents(pathB: pathB + id)
         }
     }
